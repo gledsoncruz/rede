@@ -1,0 +1,7 @@
+<div class="novo_usuario">
+	<% if (current_usuario.tipo == 1) && (current_usuario.cadastro_id == nil) -%>
+		<%= render 'form' %>
+	<% else -%>
+		<p><%= link_to "Voltar para os dados da escola", "/escolas/#{current_usuario.cadastro_id}" %></p>
+	<% end %>
+</div>

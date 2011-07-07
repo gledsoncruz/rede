@@ -1,0 +1,30 @@
+<div class="meus_alunos">
+	<p>Alunos Vinculados</p>
+	<ul>
+		<% @escola.mergulhadores.each do |mergulhador| %>
+			<li><%= mergulhador.nome %></li>
+		<% end %>
+	</ul>
+</div>
+<div class="detalhe">
+	<div class="box_detalhe">
+		<p>
+		  <b>Nome:</b>
+		  <%= @escola.nome %>
+		</p>
+		<p>
+		  <b>Data da fundação:</b>
+		  <%= I18n.localize(@escola.fundacao, :format => :default) %>  
+		</p>
+		<p>
+		  <b>Responsável:</b>
+		  <%= @escola.responsavel %>
+		</p>
+		<p>
+		  <b>Localização:</b>
+		  <%= @escola.localizacao %>
+		</p>
+	</div>
+	<%= link_to 'Principal', @escola, :class => "link_principal" %>
+	<%= link_to 'Atualizar meus dados', edit_escola_path(@escola), :class => "link_edit" %>
+</div>

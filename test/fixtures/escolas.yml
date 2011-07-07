@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  responsavel: MyString
+  nome: MyString
+  localizacao: MyString
+  fundacao: 2011-07-07
+
+two:
+  responsavel: MyString
+  nome: MyString
+  localizacao: MyString
+  fundacao: 2011-07-07

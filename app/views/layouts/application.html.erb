@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mergulho & Cia</title>
+  <%= stylesheet_link_tag :all %>
+  <%= csrf_meta_tag %>
+  <%= yield :head %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+	<div id="corpo">
+		<div id="espaco">
+			<% if usuario_signed_in? -%>
+	  		<%= link_to 'Logout', '/logout', :class => "link_logout" %>
+	  	<% end -%>
+			<%= yield %>
+			<%= yield :scripts %>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<div class="novo_usuario">
+	<p class="title_cabecalho">Reenviar e-mail</p>
+
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.submit "Reenviar" %>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
+</div>

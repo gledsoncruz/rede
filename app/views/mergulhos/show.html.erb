@@ -1,0 +1,34 @@
+<% unless notice.blank? -%>
+	<p id="notice"><%= notice %></p>
+<% end %>
+<%= render '/mergulhadores/detail' %>
+<div class="meu_mergulho">
+	<p>
+	  <b>Data do mergulho:</b>
+	  <%= I18n.localize(@mergulho.data, :format => :default) %>  
+	</p>
+	<p>
+	  <b>Horário:</b>
+	  <%= I18n.localize(@mergulho.hora_inicio, :format => :short) %> às <%= I18n.localize(@mergulho.hora_fim, :format => :short) %>
+	</p>
+	<p>
+	  <b>Nome da localidade:</b>
+	  <%= @mergulho.nome_local %>
+	</p>
+	<p>
+	  <b>Local do Mergulho:</b>
+	  <%= @mergulho.local_mergulho %>
+	</p>
+	<p>
+	  <b>Profundidade:</b>
+	  <%= @mergulho.profundidade %>
+	</p>
+	<p>
+	  <b>Coordenadas:</b>
+	  <%= @mergulho.longitude %>, <%= @mergulho.latitude %>
+	</p>
+	<p>
+	  <b>Temperatura:</b>
+	  <%= @mergulho.temperatura %>
+	</p>
+</div>

@@ -1,0 +1,24 @@
+<p class="title_cabecalho">Cadastro do mergulhador</p>
+<%= form_for @mergulhador, :html => { :multipart => true } do |f| %>
+  <% if @mergulhador.errors.any? %>
+    <div id="error_explanation">
+      <h4>O registro não pode ser salvo verifique os erros abaixo:</h4>
+      <ul>
+      <% @mergulhador.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+    <%= f.label :sexo %>
+    <%= f.select :sexo, [['Seleciona uma opção',''], ['Masculino', 'M'],['Feminino', 'F']] %>
+    <%= f.label :data_nascimento, 'Data de Nascimento' %>
+    <%= f.date_select :data_nascimento, :start_year => 1920, :end_year => Time.now.year %>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+    <%= f.label :escolas %>
+	  <%= f.collection_select :escola_ids, @escolas, :id, :nome, {}, :multiple => true %> 
+    <%= f.submit 'Enviar' %>
+<% end %>

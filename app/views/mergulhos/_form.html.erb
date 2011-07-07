@@ -1,0 +1,29 @@
+<p class="title_cabecalho">Cadastro de mergulho</p>
+<%= form_for(@mergulho) do |f| %>
+  <% if @mergulho.errors.any? %>
+    <div id="error_explanation">
+     <h4>O registro não pode ser salvo verifique os erros abaixo:</h4>
+      <ul>
+      <% @mergulho.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  	<%= f.hidden_field :mergulhador_id, :value => current_usuario.cadastro_id %>
+    <%= f.label :data, 'Data do mergulho' %>
+    <%= f.date_select :data %>
+    <%= f.label :hora_inicio, 'Hora de início' %>
+    <%= f.time_select :hora_inicio %>
+    <%= f.label :hora_fim, 'Hora do Fim' %>
+    <%= f.time_select :hora_fim %>
+    <%= f.label :nome_local, 'Nome da localidade' %>
+    <%= f.text_field :nome_local %>
+    <%= f.label :local_mergulho, 'Local do Mergulho' %>
+    <%= f.text_field :local_mergulho %>
+    <%= f.label :profundidade %>
+    <%= f.text_field :profundidade %>
+    <%= f.label :temperatura %>
+    <%= f.text_field :temperatura %>
+    <%= f.submit 'Enviar' %>
+<% end %>

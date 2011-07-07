@@ -1,0 +1,36 @@
+<div id="lateral">
+	<div class="minhas_escolas">
+		<p>Minhas escolas</p>
+		<ul>
+			<% @mergulhador.escolas.each do |escola| %>
+				<li><%= escola.nome %></li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="meus_colegas">
+		<p>Meus colegas</p>
+	</div>
+</div>
+<div class="detalhe">
+	<div class="box_detalhe">
+		<% unless @mergulhador.avatar_file_name.blank? -%>
+			<%= image_tag @mergulhador.avatar.url(:thumb) %>
+		<% end %>
+		<p>
+		  <b>Nome:</b>
+		  <%= @mergulhador.nome %>
+		</p>
+		<p>
+		  <b>Sexo:</b>
+		  <%= @mergulhador.sexo == 'M'? 'Masculino' : 'Feminino' %>
+		</p>
+		<p>
+		  <b>Data nascimento:</b>
+		  <%= I18n.localize(@mergulhador.data_nascimento, :format => :default) %>  
+		</p>
+	</div>
+	<%= link_to 'Principal', @mergulhador, :class => "link_principal" %>
+	<%= link_to 'Atualizar meus dados', edit_mergulhador_path(@mergulhador), :class => "link_edit" %>
+	<%= link_to "Listar meus mergulhos", mergulhos_path, :class => "link_listar_mergulho" %>
+	<%= link_to "Inserir novo mergulho", new_mergulho_path, :class => "link_novo_mergulho" %>
+</div>

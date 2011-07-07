@@ -1,0 +1,24 @@
+<p class="title_cabecalho">Cadastro da escola</p>
+<%= form_for(@escola) do |f| %>
+  <% if @escola.errors.any? %>
+    <div id="error_explanation">
+      <h4>O registro não pode ser salvo verifique os erros abaixo:</h4>
+      <ul>
+      <% @escola.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+    <%= f.label :fundacao, 'Fundação' %>
+    <%= f.date_select :fundacao, :start_year => 1920, :end_year => Time.now.year %>
+    <%= f.label :responsavel, 'Responsável' %>
+    <%= f.text_field :responsavel %>
+    <%= f.label :localizacao, 'Localização' %>
+    <%= f.text_field :localizacao %>
+    <%= f.label :mergulhadores %>
+	  <%= f.collection_select :mergulhador_ids, @mergulhadores, :id, :nome, {}, :multiple => true %> 
+    <%= f.submit 'Enviar' %>
+<% end %>

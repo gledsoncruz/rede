@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  data: 2011-07-07
+  hora_inicio: 2011-07-07 09:59:50
+  hora_fim: 2011-07-07 09:59:50
+  nome_local: MyString
+  local_mergulho: MyString
+  profundidade: 1.5
+  longitude: 1.5
+  latitude: 1.5
+  temperatura: MyString
+  gmaps: false
+  mergulhador: 
+
+two:
+  data: 2011-07-07
+  hora_inicio: 2011-07-07 09:59:50
+  hora_fim: 2011-07-07 09:59:50
+  nome_local: MyString
+  local_mergulho: MyString
+  profundidade: 1.5
+  longitude: 1.5
+  latitude: 1.5
+  temperatura: MyString
+  gmaps: false
+  mergulhador: 

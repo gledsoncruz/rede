@@ -1,0 +1,28 @@
+<%= render '/mergulhadores/detail' %>
+<div class="listagem">
+	<table>
+	  <tr>
+	    <th>Data do mergulho</th>
+	    <th>Horário</th>
+	    <th>Nome da localidade</th>
+	    <th>Local do Mergulho</th>
+	    <th>Profundidade</th>
+	    <th colspan="3" width="7%"></th>
+	  </tr>
+		<% @mergulhos.each do |mergulho| %>
+		  <tr>
+		    <td><%= I18n.localize(mergulho.data, :format => :default) %>  </td>
+		    <td><%= I18n.localize(mergulho.hora_inicio, :format => :short) %> às <%= I18n.localize(mergulho.hora_fim, :format => :short) %></td>
+		    <td><%= mergulho.nome_local %></td>
+		    <td><%= mergulho.local_mergulho %></td>
+		    <td><%= mergulho.profundidade %></td>
+		    <td><%= link_to image_tag("ico_detalhe_16.png", :alt=>"Detalhar", :title=>"Detalhar"), mergulho %></td>
+				<td><%= link_to image_tag("ico_altera_16.png", :alt=>"Editar", :title=>"Editar"), edit_mergulho_path(mergulho) %></td>
+				<td><%= link_to image_tag("ico_apaga_16.png", :alt=>"Excluir", :title=>"Excluir"), mergulho, :confirm => 'Deseja realmente excluir esse registro?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+	</table>
+	<% unless @mergulhos.blank? -%>
+		<%= gmaps4rails(@json) %>
+	<% end %>
+</div>
